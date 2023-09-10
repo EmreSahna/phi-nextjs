@@ -10,7 +10,7 @@ import './slider-style.css'
 
 export default function IkiliSlider({ news }) {
     const sliderItems = news.slice(0, 6)
-    const other = news.slice(6,8)
+    const otherItems = news.slice(6,8)
 
     const pagination = {
         clickable: true,
@@ -43,28 +43,43 @@ export default function IkiliSlider({ news }) {
                 </Swiper>
             </div>
             <div className="w-1/3">
-                <div className="h-1/2 px-2 pb-1">
-                    <a href={other[0].categories.nodes[0].slug+"/"+other[0].slug} className="relative">
-                        <div className="absolute top-0 ml-1 mt-1 bg-yblue">
-                            <span className="text-[#fff] m-1">{other[0].categories.nodes[0].name}</span>
-                        </div>
-                        <img src={other[0].featuredImage.node.mediaItemUrl} className="h-full w-full object-cover" />
-                        <div className="absolute bottom-0 bg-yblue w-full p-2">
-                            <span className="text-[#fff] text-lg">{other[0].title}</span>
-                        </div>
-                    </a>
-                </div>
-                <div className="h-1/2 px-2 pt-1">
-                    <a href={other[1].categories.nodes[0].slug+"/"+other[1].slug} className="relative">
-                        <div className="absolute top-0 ml-1 mt-1 bg-yblue">
-                            <span className="text-[#fff] m-1">{other[1].categories.nodes[0].name}</span>
-                        </div>
-                        <img src={other[1].featuredImage.node.mediaItemUrl} className="h-full w-full object-cover" />
-                        <div className="absolute bottom-0 bg-yblue w-full p-2">
-                            <span className="text-[#fff] text-lg">{other[1].title}</span>
-                        </div>
-                    </a>
-                </div>
+                {
+                    otherItems.map((other, index) => {
+                            if (index%2 == 0) {
+                                return (
+                                <div className="h-1/2 px-2 pb-1">
+                                    <a href={other.categories.nodes[0].slug + "/" + other.slug}
+                                       className="relative">
+                                        <div className="absolute top-0 ml-1 mt-1 bg-yblue">
+                                            <span className="text-[#fff] m-1">{other.categories.nodes[0].name}</span>
+                                        </div>
+                                        <img src={other.featuredImage.node.mediaItemUrl}
+                                             className="h-full w-full object-cover"/>
+                                        <div className="absolute bottom-0 bg-yblue w-full p-2">
+                                            <span className="text-[#fff] text-lg">{other.title}</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                )
+                            }else {
+                                return (
+                                    <div className="h-1/2 px-2 pb-1">
+                                        <a href={other.categories.nodes[0].slug + "/" + other.slug}
+                                           className="relative">
+                                            <div className="absolute top-0 ml-1 mt-1 bg-yblue">
+                                                <span className="text-[#fff] m-1">{other.categories.nodes[0].name}</span>
+                                            </div>
+                                            <img src={other.featuredImage.node.mediaItemUrl}
+                                                 className="h-full w-full object-cover"/>
+                                            <div className="absolute bottom-0 bg-yblue w-full p-2">
+                                                <span className="text-[#fff] text-lg">{other.title}</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                )
+                            }
+                    })
+                }
             </div>
         </div>
     )
