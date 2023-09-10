@@ -19,9 +19,9 @@ export default async function Navbar() {
             <div className="bg-yblue">
                 <div className="max-w-[1000px] mx-auto flex py-2 space-x-10 justify-center font-semibold">
                     {
-                        categories.map(category => {
+                        categories.map((category,index) => {
                             return (
-                                <a href={category.slug} className="hover:text-ychar">{category.name}</a>
+                                <a key={index} href={category.slug} className="hover:text-ychar">{category.name}</a>
                             )
                         })
                     }

@@ -1,8 +1,4 @@
-import {getAnasayfaLatest, getAnasayfaUstKisim, getLatestEkonomi, getLatestSonDakika, getPosts} from "@/lib/api";
-import RowHaber from "@/components/row-haber";
-import AnasayfaLatest from "@/components/anasayfa-latest";
-import RowGenis from "@/components/row-genis";
-import AnasayfaSlayt from "@/components/anasayfa-slayt";
+import {getAnasayfaUstKisim} from "@/lib/api";
 import UcluRow from "@/components/uclu-row";
 import IkiliSlider from "@/components/ikili-slider";
 

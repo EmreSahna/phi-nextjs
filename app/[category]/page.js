@@ -26,14 +26,12 @@ export default async function Category({params}) {
         })
     }).then((res) => res.json())
 
-    console.log(res.data.posts.nodes)
-
     return (
         <>
             {
-                res.data.posts.nodes.map(post => {
+                res.data.posts.nodes.map((post,index) => {
                     return (
-                        <p>{post.title}</p>
+                        <p key={index}>{post.title}</p>
                     )
                 })
             }

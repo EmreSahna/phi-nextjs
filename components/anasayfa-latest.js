@@ -1,3 +1,4 @@
+/*
 export default function AnasayfaLatest({ news }) {
     return (
         <div className="h-[400px] flex">
@@ -52,3 +53,4 @@ export default function AnasayfaLatest({ news }) {
         </div>
     )
 }
+*/

@@ -47,7 +47,7 @@ export default function IkiliSlider({ news }) {
                     otherItems.map((other, index) => {
                             if (index%2 == 0) {
                                 return (
-                                <div className="h-1/2 px-2 pb-1">
+                                <div className="h-1/2 px-2 pb-1" key={index}>
                                     <a href={other.categories.nodes[0].slug + "/" + other.slug}
                                        className="relative">
                                         <div className="absolute top-0 ml-1 mt-1 bg-yblue">
@@ -63,7 +63,7 @@ export default function IkiliSlider({ news }) {
                                 )
                             }else {
                                 return (
-                                    <div className="h-1/2 px-2 pb-1">
+                                    <div className="h-1/2 px-2 pb-1" key={index}>
                                         <a href={other.categories.nodes[0].slug + "/" + other.slug}
                                            className="relative">
                                             <div className="absolute top-0 ml-1 mt-1 bg-yblue">

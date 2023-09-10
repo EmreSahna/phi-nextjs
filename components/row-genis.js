@@ -6,7 +6,7 @@ export default function RowGenis({news}) {
                     var link = "http://localhost:3000/"+post.categories.nodes[0].slug+"/"+post.slug
                     if (index == 0) {
                         return (
-                            <a href={link} className="w-1/3">
+                            <a href={link} className="w-1/3" key={index}>
                                 <div className="h-full pr-2">
                                     <div className="h-[215px] overflow-hidden mb-2">
                                         <img className="object-cover h-full w-full" src={post.featuredImage.node.mediaItemUrl} alt="an example"/>
@@ -18,7 +18,7 @@ export default function RowGenis({news}) {
                         )
                     } else if(index == 2) {
                         return (
-                            <a href={link} className="w-1/3">
+                            <a href={link} className="w-1/3" key={index}>
                                 <div className="h-full pl-2">
                                     <div className="h-[215px] overflow-hidden mb-2">
                                         <img className="object-cover h-full w-full" src={post.featuredImage.node.mediaItemUrl} alt="an example"/>
@@ -30,7 +30,7 @@ export default function RowGenis({news}) {
                         )
                     } else {
                         return (
-                            <a href={link} className="w-1/3">
+                            <a href={link} className="w-1/3" key={index}>
                                 <div className="h-full px-2">
                                     <div className="h-[215px] overflow-hidden mb-2">
                                         <img className="object-cover h-full w-full" src={post.featuredImage.node.mediaItemUrl} alt="an example"/>
