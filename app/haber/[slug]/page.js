@@ -1,16 +1,15 @@
-import {getCategoriesOnlySlug, getSinglePost} from "@/lib/api";
+import {getPostsSlugs, getSinglePost} from "@/lib/api";
 
 export default async function Page({ params }) {
     const { slug } = params
 
     const res = await getSinglePost(slug)
-    const post = res[0].attributes
 
     return(
         <div className="max-w-[1180px] mx-auto article">
-            <h1>{post.Title}</h1>
+            <h1>{res.Title}</h1>
             <div className="mb-6">
-                <article dangerouslySetInnerHTML={{__html: post.Content}}></article>
+                <article dangerouslySetInnerHTML={{__html: res.Content}}></article>
             </div>
             <div className="text-center">
                 <span className="font-semibold text-[16px] text-yblue">İlginizi Çekebilir</span>
@@ -21,7 +20,7 @@ export default async function Page({ params }) {
 }
 
 export async function generateStaticParams() {
-    const res = await getCategoriesOnlySlug()
+    const res = await getPostsSlugs()
 
     return res.map((post) => ({
         slug: post.attributes.Slug

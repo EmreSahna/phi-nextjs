@@ -1,4 +1,4 @@
-import {getPostsByCategoryName, getPostsSlugs} from "@/lib/api";
+import {getCategoriesOnlySlug, getPostsByCategoryName} from "@/lib/api";
 
 export default async function Category({params}) {
     const { slug } = params
@@ -19,7 +19,7 @@ export default async function Category({params}) {
 }
 
 export async function generateStaticParams() {
-    const posts = await getPostsSlugs()
+    const posts = await getCategoriesOnlySlug()
     return posts.map((slug) => (
         {
             category: slug.attributes.Slug
