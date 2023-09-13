@@ -6,7 +6,7 @@ export default function UcluRow({ news }) {
                     post = post.attributes
                     return (
                         <div className="w-1/3 h-full px-2" key={index}>
-                            <a href={post.categories.data[0].attributes.Slug+"/"+post.Slug} className="relative">
+                            <a href={"/haber/"+post.Slug} className="relative">
                                 <div className="absolute top-0 ml-1 mt-1 bg-yblue">
                                     <span className="text-[#fff] m-1">{post.categories.data[0].attributes.Name}</span>
                                 </div>

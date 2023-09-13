@@ -1,8 +1,8 @@
 import {getPostsByCategoryName, getPostsSlugs} from "@/lib/api";
 
 export default async function Category({params}) {
-    const { category } = params
-    const res = await getPostsByCategoryName(category)
+    const { slug } = params
+    const res = await getPostsByCategoryName(slug)
 
     return (
         <>

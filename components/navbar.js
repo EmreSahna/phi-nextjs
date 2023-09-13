@@ -20,8 +20,9 @@ export default async function Navbar() {
                 <div className="max-w-[1000px] mx-auto flex py-2 space-x-10 justify-center font-semibold">
                     {
                         categories.map((category,index) => {
+                            category = category.attributes
                             return (
-                                <a key={index} href={category.slug} className="hover:text-ychar">{category.name}</a>
+                                <a key={index} href={"/kategori/"+category.Slug} className="hover:text-ychar">{category.Name}</a>
                             )
                         })
                     }

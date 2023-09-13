@@ -19,7 +19,7 @@ export async function GET() {
         post = post.attributes
         feed.item({
             title: post.Title,
-            url: `http://3.75.201.225/${post.categories.data[0].attributes.Slug}/${post.Slug}`,
+            url: `http://3.75.201.225/haber/${post.Slug}`,
             date: post.createdAt,
             categories: [post.categories.data[0].attributes.Slug],
         });

@@ -28,7 +28,7 @@ export default function IkiliSlider({ news }) {
                             slide = slide.attributes
                             return (
                                 <SwiperSlide key={index}>
-                                    <a href={slide.categories.data[0].attributes.Slug+"/"+slide.Slug} className="relative">
+                                    <a href={"/haber/"+slide.Slug} className="relative">
                                         <div className="absolute top-0 ml-1 mt-1 bg-yblue">
                                             <span className="text-[#fff] m-1">{slide.categories.data[0].attributes.Name}</span>
                                         </div>
@@ -50,7 +50,7 @@ export default function IkiliSlider({ news }) {
                             if (index%2 == 0) {
                                 return (
                                 <div className="h-1/2 px-2 pb-1" key={index}>
-                                    <a href={other.categories.data[0].attributes.Slug+"/"+other.Slug}
+                                    <a href={"/haber/"+other.Slug}
                                        className="relative">
                                         <div className="absolute top-0 ml-1 mt-1 bg-yblue">
                                             <span className="text-[#fff] m-1">{other.categories.data[0].attributes.Name}</span>
@@ -66,7 +66,7 @@ export default function IkiliSlider({ news }) {
                             }else {
                                 return (
                                     <div className="h-1/2 px-2 pb-1" key={index}>
-                                        <a href={other.categories.data[0].attributes.Slug+"/"+other.Slug}
+                                        <a href={"/haber/"+other.Slug}
                                            className="relative">
                                             <div className="absolute top-0 ml-1 mt-1 bg-yblue">
                                                 <span className="text-[#fff] m-1">{other.categories.data[0].attributes.Name}</span>
@@ -86,23 +86,3 @@ export default function IkiliSlider({ news }) {
         </div>
     )
 }
-
-/*
-{
-                    othertwo.map(other => {
-                        return (
-                            <div className="h-1/2 px-2">
-                                <a href={other.categories.nodes[0].slug+"/"+other.slug} className="relative">
-                                    <div className="absolute top-0 ml-1 mt-1 bg-yblue">
-                                        <span className="text-[#fff] m-1">{other.categories.nodes[0].name}</span>
-                                    </div>
-                                    <img src={other.featuredImage.node.mediaItemUrl} className="h-full w-full object-cover" />
-                                    <div className="absolute bottom-0 bg-yblue w-full p-2">
-                                        <span className="text-[#fff] text-lg">{other.title}</span>
-                                    </div>
-                                </a>
-                            </div>
-                        )
-                    })
-                }
- */
