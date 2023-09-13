@@ -4,7 +4,6 @@ import IkiliSlider from "@/components/ikili-slider";
 
 export default async function Home() {
     const posts = await getAnasayfaUstKisim()
-
     const ucluRow = posts.slice(0, 3)
     const ikiliSlayt = posts.slice(3, 11)
 

@@ -25,15 +25,16 @@ export default function IkiliSlider({ news }) {
                 <Swiper pagination={pagination} modules={[Autoplay, Pagination, EffectFade]} autoplay={{delay: 3000, disableOnInteraction: false}} loop={true} effect={'fade'}>
                     {
                         sliderItems.map((slide,index) => {
+                            slide = slide.attributes
                             return (
                                 <SwiperSlide key={index}>
-                                    <a href={slide.categories.nodes[0].slug+"/"+slide.slug} className="relative">
+                                    <a href={slide.categories.data[0].attributes.Slug+"/"+slide.Slug} className="relative">
                                         <div className="absolute top-0 ml-1 mt-1 bg-yblue">
-                                            <span className="text-[#fff] m-1">{slide.categories.nodes[0].name}</span>
+                                            <span className="text-[#fff] m-1">{slide.categories.data[0].attributes.Name}</span>
                                         </div>
-                                        <img src={slide.featuredImage.node.mediaItemUrl} className="h-full w-full object-cover before:grad" />
+                                        <img src={process.env.IMG_URL + slide.Banner.data.attributes.url} className="h-full w-full object-cover before:grad" />
                                         <div className="absolute bottom-12 bg-ychar text-center p-1">
-                                            <span className="text-[#fff] text-3xl">{slide.title}</span>
+                                            <span className="text-[#fff] text-3xl">{slide.Title}</span>
                                         </div>
                                     </a>
                                 </SwiperSlide>
@@ -45,18 +46,19 @@ export default function IkiliSlider({ news }) {
             <div className="w-1/3">
                 {
                     otherItems.map((other, index) => {
+                            other = other.attributes
                             if (index%2 == 0) {
                                 return (
                                 <div className="h-1/2 px-2 pb-1" key={index}>
-                                    <a href={other.categories.nodes[0].slug + "/" + other.slug}
+                                    <a href={other.categories.data[0].attributes.Slug+"/"+other.Slug}
                                        className="relative">
                                         <div className="absolute top-0 ml-1 mt-1 bg-yblue">
-                                            <span className="text-[#fff] m-1">{other.categories.nodes[0].name}</span>
+                                            <span className="text-[#fff] m-1">{other.categories.data[0].attributes.Name}</span>
                                         </div>
-                                        <img src={other.featuredImage.node.mediaItemUrl}
+                                        <img src={process.env.IMG_URL + post.Banner.data.attributes.url}
                                              className="h-full w-full object-cover"/>
                                         <div className="absolute bottom-0 bg-yblue w-full p-2">
-                                            <span className="text-[#fff] text-lg">{other.title}</span>
+                                            <span className="text-[#fff] text-lg">{other.Title}</span>
                                         </div>
                                     </a>
                                 </div>
@@ -64,15 +66,15 @@ export default function IkiliSlider({ news }) {
                             }else {
                                 return (
                                     <div className="h-1/2 px-2 pb-1" key={index}>
-                                        <a href={other.categories.nodes[0].slug + "/" + other.slug}
+                                        <a href={other.categories.data[0].attributes.Slug+"/"+other.Slug}
                                            className="relative">
                                             <div className="absolute top-0 ml-1 mt-1 bg-yblue">
-                                                <span className="text-[#fff] m-1">{other.categories.nodes[0].name}</span>
+                                                <span className="text-[#fff] m-1">{other.categories.data[0].attributes.Name}</span>
                                             </div>
-                                            <img src={other.featuredImage.node.mediaItemUrl}
+                                            <img src={process.env.IMG_URL + post.Banner.data.attributes.url}
                                                  className="h-full w-full object-cover"/>
                                             <div className="absolute bottom-0 bg-yblue w-full p-2">
-                                                <span className="text-[#fff] text-lg">{other.title}</span>
+                                                <span className="text-[#fff] text-lg">{other.Title}</span>
                                             </div>
                                         </a>
                                     </div>
