@@ -8,19 +8,20 @@ export async function GET() {
     const feed = new RSS({
         title: 'PhiHaber',
         description: 'Doğru haberlerin yeri',
-        site_url: 'http://localhost:3000',
-        feed_url: `http://localhost:3000/feed.xml`,
+        site_url: 'http://3.75.201.225',
+        feed_url: `http://3.75.201.225/feed.xml`,
         copyright: `${new Date().getFullYear()} PhiHaber`,
         language: 'tr-TR',
         pubDate: new Date(),
     });
 
     posts.map(post => {
+        post = post.attributes
         feed.item({
-            title: post.title,
-            url: `http://localhost:3000/${post.categories.nodes[0].slug}/${post.slug}`,
-            date: post.date,
-            categories: [post.categories.nodes[0].slug],
+            title: post.Title,
+            url: `http://3.75.201.225/${post.categories.data[0].attributes.Slug}/${post.Slug}`,
+            date: post.createdAt,
+            categories: [post.categories.data[0].attributes.Slug],
         });
     });
 

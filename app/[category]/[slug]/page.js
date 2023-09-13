@@ -1,38 +1,16 @@
+import {getPostsSlugs, getSinglePost} from "@/lib/api";
+
 export default async function Page({ params }) {
     const { slug } = params
 
-    const res = await fetch('http://16.170.229.209/?graphql', {
-        method: 'POST',
-        headers: { 'Content-Type':'application/json' },
-        body: JSON.stringify({
-            query: `
-                query SinglePost($id: ID!, $idType: PostIdType!) {
-                    post(id: $id, idType: $idType) {
-                         title
-                         slug
-                         content
-                         featuredImage {
-                            node {
-                                sourceUrl
-                            }
-                         } 
-                    }
-                }
-            `,
-            variables: {
-                id: slug,
-                idType: 'SLUG'
-            }
-        })
-    }).then((res) => res.json())
-
-    const post = res.data.post
+    const res = await getSinglePost(slug)
+    const post = res[0].attributes
 
     return(
         <div className="max-w-[1180px] mx-auto article">
-            <h1>{post.title}</h1>
+            <h1>{post.Title}</h1>
             <div className="mb-6">
-                <article dangerouslySetInnerHTML={{__html: post.content}}></article>
+                <article dangerouslySetInnerHTML={{__html: post.Content}}></article>
             </div>
             <div className="text-center">
                 <span className="font-semibold text-[16px] text-yblue">İlginizi Çekebilir</span>
@@ -43,31 +21,9 @@ export default async function Page({ params }) {
 }
 
 export async function generateStaticParams() {
-    const res = await fetch('http://16.170.229.209/?graphql', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            query: `
-            query AllPostsQuery {
-                posts {
-                    nodes {
-                        slug
-                        content
-                        title
-                        featuredImage {
-                            node {
-                                sourceUrl
-                            }
-                        }
-                    }
-                }
-            }
-        `})
-    }).then((res) => res.json())
+    const res = await getPostsSlugs()
 
-    const posts = res.data.posts.nodes;
-
-    return posts.map((post) => ({
-        slug: post.slug
+    return res.map((post) => ({
+        slug: post.attributes.Slug
     }))
 }

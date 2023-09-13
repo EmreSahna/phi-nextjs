@@ -1,37 +1,16 @@
+import {getPostsByCategoryName, getPostsSlugs} from "@/lib/api";
+
 export default async function Category({params}) {
     const { category } = params
-
-    const res = await fetch('http://16.170.229.209/?graphql', {
-        method: 'POST',
-        headers: { 'Content-Type':'application/json' },
-        body: JSON.stringify({
-            query: `
-                query Categories($categoryName: String = "") {
-                    posts (where: {categoryName: $categoryName}){
-                        nodes {
-                            slug
-                            title
-                            featuredImage {
-                                node {
-                                    mediaItemUrl
-                                }
-                            }
-                        }
-                    }
-                }
-            `,
-            variables: {
-                categoryName: category
-            }
-        })
-    }).then((res) => res.json())
+    const res = await getPostsByCategoryName(category)
 
     return (
         <>
             {
-                res.data.posts.nodes.map((post,index) => {
+                res.map((post,index) => {
+                    post = post.attributes
                     return (
-                        <p key={index}>{post.title}</p>
+                        <p key={index}>{post.Title}</p>
                     )
                 })
             }
@@ -40,24 +19,10 @@ export default async function Category({params}) {
 }
 
 export async function generateStaticParams() {
-    const res = await fetch('http://16.170.229.209/?graphql', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            query: `
-            query Categories {
-              categories {
-                nodes {
-                  slug
-                }
-              }
-            }
-        `})
-    }).then((res) => res.json())
-
-    const posts = res.data.categories.nodes;
-
-    return posts.map((post) => ({
-        category: post.slug
-    }))
+    const posts = await getPostsSlugs()
+    return posts.map((slug) => (
+        {
+            category: slug.attributes.Slug
+        }
+    ))
 }
