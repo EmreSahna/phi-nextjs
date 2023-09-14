@@ -10,7 +10,7 @@ export default async function Navbar() {
                     <div className="flex items-center justify-between h-16 text-[#fff]">
                         <a href="/">
                             <div className="h-[60px] p-1">
-                                <img src="/logo_2_2.png" className="h-full w-full object-cover" />
+                                <img src="/logo.png" className="h-full w-full object-cover" />
                             </div>
                         </a>
                     </div>
@@ -22,7 +22,7 @@ export default async function Navbar() {
                         categories.map((category,index) => {
                             category = category.attributes
                             return (
-                                <a key={index} href={"/kategori/"+category.Slug} className="hover:text-ychar">{category.Name}</a>
+                                <a key={index} href={"/kategori/"+category.Slug} className="hover:text-ylaven">{category.Name}</a>
                             )
                         })
                     }

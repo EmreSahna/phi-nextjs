@@ -1,5 +1,24 @@
 import {getPostsSlugs, getSinglePost} from "@/lib/api";
 
+export async function generateMetadata({ params }) {
+    const URL = "https://phihaber.com"
+    const id = params.slug
+    const product = await getSinglePost(id)
+
+    return {
+        title: product.Title + " | PhiHaber",
+        openGraph: {
+            title: product.Title,
+            siteName: 'PhiHaber',
+            locale: 'tr_TR',
+            url: `${URL}/haber/${id}`,
+            images:[`${URL}/strapi/${product.Banner.data.attributes.url}`],
+            type: 'website',
+            description: product.Description,
+        }
+    }
+}
+
 export default async function Page({ params }) {
     const { slug } = params
 
@@ -10,10 +29,6 @@ export default async function Page({ params }) {
             <h1>{res.Title}</h1>
             <div className="mb-6">
                 <article dangerouslySetInnerHTML={{__html: res.Content}}></article>
-            </div>
-            <div className="text-center">
-                <span className="font-semibold text-[16px] text-yblue">İlginizi Çekebilir</span>
-                <hr/>
             </div>
         </div>
     )
