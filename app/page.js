@@ -12,12 +12,6 @@ export default async function Page() {
             <div className="mx-auto max-w-[1180px] my-6">
                 <UcluRow news={ucluRow}/>
                 <IkiliSlider news={ikiliSlayt}/>
-                <UcluRow news={posts.slice(11,14)} />
-                <UcluRow news={posts.slice(14,17)} />
-                <UcluRow news={posts.slice(17,20)} />
-                <UcluRow news={posts.slice(20,23)} />
-                <UcluRow news={posts.slice(23,29)} />
-                <UcluRow news={posts.slice(29,30)} />
             </div>
         </>
     )
