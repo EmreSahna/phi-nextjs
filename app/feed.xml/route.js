@@ -13,7 +13,7 @@ export async function GET() {
         copyright: `${new Date().getFullYear()} PhiHaber`,
         language: 'tr-TR',
         pubDate: new Date(),
-        image_url: `${URL}/logo.png`,
+        image_url: `${URL}/logo_dark.jpg`,
     });
 
     posts.map(post => {

@@ -12,7 +12,7 @@ export default async function Category({params}) {
                     return (
                         <div className="bg-yblue h-[250px] w-1/2 mx-4" key={index}>
                             <a href={"/haber/"+post.Slug} className="relative">
-                                <img src={process.env.IMG_URL + post.Banner.data.attributes.url} className="object-cover w-full h-full" />
+                                <img src={process.env.IMG_URL + post.Banner.data.attributes.url} alt={post.Banner.data.attributes.alternativeText} className="object-cover w-full h-full" />
                                 <div className="absolute bottom-0 bg-yblue w-full p-2">
                                     <span className="text-[#fff] text-lg">{post.Title}</span>
                                 </div>

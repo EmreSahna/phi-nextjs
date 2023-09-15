@@ -32,7 +32,7 @@ export default function IkiliSlider({ news }) {
                                         <div className="absolute top-0 ml-1 mt-1 bg-yblue">
                                             <span className="text-[#fff] m-1">{slide.categories.data[0].attributes.Name}</span>
                                         </div>
-                                        <img src={process.env.IMG_URL + slide.Banner.data.attributes.url} className="h-full w-full object-cover before:grad" />
+                                        <img src={process.env.IMG_URL + slide.Banner.data.attributes.url} alt={slide.Banner.data.attributes.alternativeText} className="h-full w-full object-cover before:grad" />
                                         <div className="absolute bottom-12 bg-ychar text-center p-1">
                                             <span className="text-[#fff] text-3xl">{slide.Title}</span>
                                         </div>
@@ -55,8 +55,7 @@ export default function IkiliSlider({ news }) {
                                         <div className="absolute top-0 ml-1 mt-1 bg-yblue">
                                             <span className="text-[#fff] m-1">{other.categories.data[0].attributes.Name}</span>
                                         </div>
-                                        <img src={process.env.IMG_URL + post.Banner.data.attributes.url}
-                                             className="h-full w-full object-cover"/>
+                                        <img src={process.env.IMG_URL + other.Banner.data.attributes.url} alt={other.Banner.data.attributes.alternativeText} className="h-full w-full object-cover"/>
                                         <div className="absolute bottom-0 bg-yblue w-full p-2">
                                             <span className="text-[#fff] text-lg">{other.Title}</span>
                                         </div>
@@ -71,8 +70,7 @@ export default function IkiliSlider({ news }) {
                                             <div className="absolute top-0 ml-1 mt-1 bg-yblue">
                                                 <span className="text-[#fff] m-1">{other.categories.data[0].attributes.Name}</span>
                                             </div>
-                                            <img src={process.env.IMG_URL + post.Banner.data.attributes.url}
-                                                 className="h-full w-full object-cover"/>
+                                            <img src={process.env.IMG_URL + other.Banner.data.attributes.url} alt={other.Banner.data.attributes.alternativeText} className="h-full w-full object-cover"/>
                                             <div className="absolute bottom-0 bg-yblue w-full p-2">
                                                 <span className="text-[#fff] text-lg">{other.Title}</span>
                                             </div>

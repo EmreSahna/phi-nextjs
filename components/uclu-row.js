@@ -10,7 +10,7 @@ export default function UcluRow({ news }) {
                                 <div className="absolute top-0 ml-1 mt-1 bg-yblue">
                                     <span className="text-[#fff] m-1">{post.categories.data[0].attributes.Name}</span>
                                 </div>
-                                <img src={process.env.IMG_URL + post.Banner.data.attributes.url} className="object-cover w-full h-full" />
+                                <img src={process.env.IMG_URL + post.Banner.data.attributes.url} alt={post.Banner.data.attributes.alternativeText} className="object-cover w-full h-full" />
                                 <div className="absolute bottom-0 bg-yblue w-full p-2">
                                     <span className="text-[#fff] text-lg">{post.Title}</span>
                                 </div>

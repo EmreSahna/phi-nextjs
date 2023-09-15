@@ -10,7 +10,7 @@ export default async function Navbar() {
                     <div className="flex items-center justify-between h-16 text-[#fff]">
                         <a href="/">
                             <div className="h-[60px] p-1">
-                                <img src="/logo.png" className="h-full w-full object-cover" />
+                                <img src="/logo.png" alt="PhiHaber" className="h-full w-full object-cover" />
                             </div>
                         </a>
                     </div>

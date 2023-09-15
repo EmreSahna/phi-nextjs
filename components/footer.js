@@ -5,7 +5,7 @@ export default function Footer() {
                 <div className="max-w-[1000px] mx-auto text-[#fff]">
                     <div className="flex items-center justify-start">
                         <div className="h-[60px] p-1">
-                            <img src="/logo.png" className="h-full w-full object-contain" />
+                            <img src="/logo.png" alt="PhiHaber" className="h-full w-full object-contain" />
                         </div>
                     </div>
                 </div>
