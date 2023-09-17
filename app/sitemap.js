@@ -7,14 +7,14 @@ export default async function sitemap() {
 
     const categories = category.map(category => {
         return {
-            url: `${url}/${category.attributes.Slug}`,
+            url: `${url}/kategori/${category.attributes.Slug}`,
             lastModified: category.attributes.updatedAt,
         };
     });
 
     const posts = post.map(post => {
         return {
-            url: `${url}/${post.attributes.Slug}`,
+            url: `${url}/haber/${post.attributes.Slug}`,
             lastModified: post.attributes.updatedAt,
         };
     });
