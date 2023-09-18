@@ -1,6 +1,6 @@
 export default function UcluRow({ news }) {
     return (
-        <div className="h-[250px] flex font-semibold">
+        <div className="h-[250px] flex mt-4 font-semibold">
             {
                 news.map((post, index) => {
                     post = post.attributes
