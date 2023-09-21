@@ -21,3 +21,13 @@
 .article article {
     max-width: 850px;
 }
+
+.article h4 {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.article img {
+    margin-right: auto;
+    margin-left: auto;
+}
