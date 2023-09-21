@@ -12,7 +12,7 @@ export default async function Category({params}) {
     }
 
     const renderedComponents = groupedPosts.map((chunk, index) => (
-        <div className="h-[250px] flex mt-4 font-semibold w-full">
+        <div className="h-[250px] flex mt-4 font-semibold w-full" key={index}>
             {
                 chunk.map((post, index) => {
                     post = post.attributes
