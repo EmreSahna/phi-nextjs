@@ -6,7 +6,7 @@ export default async function Navbar() {
     return (
         <header className="text-[#fff] shadow-lg">
             <div className="bg-yrblack">
-                <div className="max-w-[1000px] bg-yrblack mx-auto">
+                <div className="w-full sm:w-[1000px] bg-yrblack mx-auto">
                     <div className="flex items-center justify-between h-14 text-[#fff]">
                         <a href="/">
                             <div className="h-[60px] p-1">
@@ -16,13 +16,13 @@ export default async function Navbar() {
                     </div>
                 </div>
             </div>
-            <div className="bg-[#fff]">
-                <div className="max-w-[1000px] mx-auto flex py-1 space-x-10 justify-center font-semibold">
+            <div className="bg-[#fff] hidden sm:block">
+                <div className="w-full mx-auto flex py-1 justify-center font-semibold">
                     {
                         categories.map((category,index) => {
                             category = category.attributes
                             return (
-                                <a key={index} href={"/kategori/"+category.Slug} className="text-yblue hover:text-ylaven">{category.Name}</a>
+                                <a key={index} href={"/kategori/"+category.Slug} className="text-yblue hover:text-ychar mx-3 sm:mx-6">{category.Name}</a>
                             )
                         })
                     }

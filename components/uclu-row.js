@@ -1,11 +1,11 @@
 export default function UcluRow({ news }) {
     return (
-        <div className="h-[250px] flex mt-4 font-semibold">
+        <div className="sm:h-[250px] flex sm:flex-nowrap flex-wrap mt-0 sm:mt-4 font-semibold">
             {
                 news.map((post, index) => {
                     post = post.attributes
                     return (
-                        <div className="w-1/3 h-full px-2" key={index}>
+                        <div className="mt-2 sm:mt-0 h-[250px] sm:h-full w-full sm:w-1/3 px-2" key={index}>
                             <a href={"/haber/"+post.Slug} className="relative">
                                 <div className="absolute top-0 ml-1 mt-1 bg-yblue">
                                     <span className="text-[#fff] m-1">{post.categories.data[0].attributes.Name}</span>
