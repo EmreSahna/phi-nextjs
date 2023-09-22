@@ -4,12 +4,11 @@ export default function robots() {
         [
             {
                 userAgent: '*',
-                allow: '/',
                 disallow: '/strapi',
             },
             {
                 userAgent: 'Twitterbot',
-                allow: '/strapi',
+                allow: '/',
             }
         ],
         sitemap: 'https://phihaber.com/sitemap.xml',
