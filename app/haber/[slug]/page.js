@@ -12,7 +12,7 @@ export async function generateMetadata({ params }) {
             siteName: 'PhiHaber',
             locale: 'tr_TR',
             url: `${URL}/haber/${id}`,
-            images:[`${URL}/strapi/${product.Banner.data.attributes.url}`],
+            images:[`${URL}/strapi${product.Banner.data.attributes.url}`],
             type: 'website',
             description: product.Description,
         }
