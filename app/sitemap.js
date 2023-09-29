@@ -24,6 +24,30 @@ export default async function sitemap() {
             url: `${url}`,
             lastModified: new Date(),
         },
+        {
+            url: `${url}/kunye`,
+            lastModified: new Date(),
+        },
+        {
+            url: `${url}/hakkimizda`,
+            lastModified: new Date(),
+        },
+        {
+            url: `${url}/iletisim`,
+            lastModified: new Date(),
+        },
+        {
+            url: `${url}/gizlilik-politikasi`,
+            lastModified: new Date(),
+        },
+        {
+            url: `${url}/cerezler`,
+            lastModified: new Date(),
+        },
+        {
+            url: `${url}/hukum-ve-kosullar`,
+            lastModified: new Date(),
+        },
         ...posts,
         ...categories,
     ];
