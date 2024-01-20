@@ -1,5 +1,11 @@
 ## Phi Haber NextJS Repo
 
+.env config:
+```env
+API_URL=https://phihaber.com/strapi/graphql
+IMG_URL=https://phihaber.com/strapi
+```
+
 Nginx config:
 
 ```nginx
