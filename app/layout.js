@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import Script from "next/script";
-
+import clsx from 'clsx';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
         gtag('config', 'G-4Z6DRZ86G3');
         `}
     </Script>
-      <body className={inter.className + "  bg-[#f4f4f4]"}>
+      <body className={clsx(inter.className,"flex flex-col justify-between min-h-screen bg-[#f4f4f4]")}>
       <Navbar/>
       {children}
       <Footer/>

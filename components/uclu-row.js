@@ -1,4 +1,6 @@
 export default function UcluRow({ news }) {
+    // duplicate news array
+
     return (
         <div className="sm:h-[250px] flex sm:flex-nowrap flex-wrap mt-0 sm:mt-4 font-semibold">
             {
