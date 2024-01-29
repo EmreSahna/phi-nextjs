@@ -1,4 +1,5 @@
 import {getCategoriesOnlySlug, getPostsByCategoryName} from "@/lib/api";
+import toImageUrl from "@/utils/to_image_url";
 
 export default async function Category({params}) {
     const { slug } = params

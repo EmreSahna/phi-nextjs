@@ -26,9 +26,11 @@ export default function RootLayout({ children }) {
         `}
     </Script>
       <body className={clsx(inter.className,"flex flex-col justify-between min-h-screen bg-[#f4f4f4]")}>
-      <Navbar/>
-      {children}
-      <Footer/>
+        <div>
+          <Navbar/>
+          {children}
+        </div>
+        <Footer/>
       </body>
     </html>
   )
