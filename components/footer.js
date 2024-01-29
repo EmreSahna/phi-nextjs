@@ -1,4 +1,13 @@
-export default function Footer() {
+import { getCategories } from "@/lib/api"
+
+export default async function Footer() {
+    var fetchedCategories = await getCategories();
+    var splittedCategories = [];
+    var categoriesLength = fetchedCategories.length;
+    while(fetchedCategories.length > 0){
+        splittedCategories.push(fetchedCategories.splice(0,Math.round(categoriesLength/2)));
+    }
+
     return (
         <footer>
             <div className="bg-yrblack">
@@ -36,54 +45,28 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
-                    <div className="col-span-2 sm:col-span-1">
-                        <ul className="space-y-4 text-sm text-gray-300 font-medium">
-                            <li>
-                                <a href="/kategori/son-dakika" className="hover:opacity-75">
-                                    Son Dakika
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/kategori/ekonomi" className="hover:opacity-75">
-                                    Ekonomi
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/kategori/teknoloji" className="hover:opacity-75">
-                                    Teknoloji
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/kategori/spor" className="hover:opacity-75">
-                                    Spor
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="col-span-2 sm:col-span-1">
-                        <ul className="space-y-4 text-sm text-gray-300 font-medium">
-                            <li>
-                                <a href="/kategori/kultur-ve-sanat" className="hover:opacity-75">
-                                    Kültür Ve Sanat
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/kategori/gundem" className="hover:opacity-75">
-                                    Gündem
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/kategori/dunya" className="hover:opacity-75">
-                                    Dünya
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/kategori/politika" className="hover:opacity-75">
-                                    Politika
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                    {
+                        splittedCategories.map((categories, i) => {
+                            return (
+                                <div className="col-span-2 sm:col-span-1" key={i}>
+                                    <ul className="space-y-4 text-sm text-gray-300 font-medium">
+                                        {
+                                            categories.map((category,i) => {
+                                                category = category.attributes
+                                                return (
+                                                    <li>
+                                                        <a key={i} href={"/kategori/"+category.Slug} className="hover:opacity-75">
+                                                            {category.Name}
+                                                        </a>
+                                                    </li>
+                                                )
+                                            })
+                                        }
+                                    </ul>
+                                </div>
+                            )
+                        })
+                    }
                     <div className="col-span-2 sm:col-span-1">
                         <ul className="space-y-4 text-sm text-gray-300 font-medium">
                             <li>
