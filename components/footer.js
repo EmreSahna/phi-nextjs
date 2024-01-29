@@ -7,9 +7,8 @@ export default async function Footer() {
     while(fetchedCategories.length > 0){
         splittedCategories.push(fetchedCategories.splice(0,Math.round(categoriesLength/2)));
     }
-
     return (
-        <footer>
+        <footer >
             <div className="bg-yrblack">
                 <div className="max-w-[1000px] mx-auto text-[#fff]">
                     <div className="flex items-center justify-start">
@@ -20,8 +19,8 @@ export default async function Footer() {
                 </div>
             </div>
             <div className="bg-yblue py-6">
-                <div className="max-w-[1000px] mx-auto font-medium grid grid-cols-2 gap-8 lg:mt-0 lg:grid-cols-4 lg:gap-y-16">
-                    <div className="col-span-2 sm:col-span-1">
+                <div className="max-w-[1000px] mx-auto font-medium grid grid-cols-2 sm:grid-cols-8 gap-8 lg:mt-0 lg:gap-y-16">
+                    <div className="sm:col-span-2 col-span-1">
                         <ul className="space-y-4 text-sm text-gray-300 font-medium">
                             <li>
                                 <a href="/kunye" className="hover:opacity-75">
@@ -37,6 +36,7 @@ export default async function Footer() {
                                 <a href="/iletisim" className="hover:opacity-75">
                                     İletişim
                                 </a>
+
                             </li>
                             <li>
                                 <a href="/hakkimizda" className="hover:opacity-75">
@@ -48,13 +48,13 @@ export default async function Footer() {
                     {
                         splittedCategories.map((categories, i) => {
                             return (
-                                <div className="col-span-2 sm:col-span-1" key={i}>
+                                <div className="sm:col-span-2 col-span-1" key={i}>
                                     <ul className="space-y-4 text-sm text-gray-300 font-medium">
                                         {
                                             categories.map((category,i) => {
                                                 category = category.attributes
                                                 return (
-                                                    <li>
+                                                    <li key={i}>
                                                         <a key={i} href={"/kategori/"+category.Slug} className="hover:opacity-75">
                                                             {category.Name}
                                                         </a>
@@ -67,7 +67,7 @@ export default async function Footer() {
                             )
                         })
                     }
-                    <div className="col-span-2 sm:col-span-1">
+                    <div className="sm:col-span-2 col-span-1 ">
                         <ul className="space-y-4 text-sm text-gray-300 font-medium">
                             <li>
                                 <a href="https://twitter.com/phihaber" className="hover:opacity-75">

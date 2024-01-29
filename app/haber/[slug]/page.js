@@ -1,4 +1,5 @@
 import {getPostsSlugs, getSinglePost} from "@/lib/api";
+import { dateToTR } from "@/utils/date_helpers";
 
 export async function generateMetadata({ params }) {
     const URL = "https://phihaber.com"
@@ -23,7 +24,7 @@ export default async function Page({ params }) {
     const { slug } = params
 
     const res = await getSinglePost(slug)
-
+    console.log(dateToTR(res.createdAt));
     return(
         <div className="max-w-[1180px] mx-auto article">
             <h1>{res.Title}</h1>
