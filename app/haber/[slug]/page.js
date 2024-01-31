@@ -1,6 +1,8 @@
-import {getPostsSlugs, getSinglePost} from "@/lib/api";
+import FacebookIcon from "@/components/icons/facebook-icon";
+import TwitterIcon from "@/components/icons/twitter-icon";
+import WhatsappIcon from "@/components/icons/whatsapp-icon";
+import { getPostsSlugs, getSinglePost } from "@/lib/api";
 import { dateToTR } from "@/utils/date_helpers";
-
 export async function generateMetadata({ params }) {
     const URL = "https://phihaber.com"
     const id = params.slug
@@ -13,7 +15,7 @@ export async function generateMetadata({ params }) {
             siteName: 'PhiHaber',
             locale: 'tr_TR',
             url: `${URL}/haber/${id}`,
-            images:[`${URL}/strapi${product.Banner.data.attributes.url}`],
+            images: [`${URL}/strapi${product.Banner.data.attributes.url}`],
             type: 'website',
             description: product.Description,
         }
@@ -22,20 +24,42 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
     const { slug } = params
-
     const res = await getSinglePost(slug)
-    console.log(res.Content)
-    console.log(dateToTR(res.createdAt));
-    return(
+    const category = {
+        Name: res.categories.data[0].attributes.Name,
+        Slug: res.categories.data[0].attributes.Slug
+    }
+
+    return (
         <div className="max-w-[1180px] mx-auto ">
+            <div className="flex sm:text-xl text-lg xl:mx-0 ml-4 mt-4">
+                <h5 className="pr-1">Kategori -</h5>
+                <a href={`/kategori/${category.Slug}`} className="font-medium text-[#0B60B0]">{category.Name}</a>
+            </div>
             <h2 className="font-bold text-4xl xl:mx-0 mx-4 my-2">{res.Title}</h2>
-            <div className="article xl:mx-0 mx-4">
+            <DateAndSocialShareRow createdAt={res.createdAt} />
+            <div className="xl:mx-0 mx-4">
                 <article
                     dangerouslySetInnerHTML={{
                         __html: `
                         <style>
+                            article {
+                                display: flex;
+                                flex-direction: column;
+                                text-align: left;
+                            }
+                            br {
+                                display: none;
+                            }
+                            article img {
+                                width: 600px!important;
+                                height: 350px!important;
+                                object-fit: cover;
+                                margin: auto;
+                                margin-bottom: 12px;
+                            }
                             @media (max-width: 1200px) {
-                                img {
+                                article img {
                                     padding-left: 12px;
                                     padding-right: 12px;
                                 }
@@ -54,14 +78,35 @@ export default async function Page({ params }) {
                                 max-width: 850px!important;
                             }
                             p {
-                                font-size: 20px!important;
-                                margin-top: 35px!important;
+                                font-size: 20px;
+                                margin-top: 25px;
                             }
                         </style>
                         ${res.Content}
                         `,
                     }}
                 />
+            </div>
+        </div>
+    )
+}
+
+function DateAndSocialShareRow({ createdAt }) {
+    return (
+        <div className="flex sm:flex-row flex-col sm:justify-between sm:items-center sm:mr-20">
+            <p className="flex font-light text-sm xl:ml-0 ml-4 mt-4">
+                {dateToTR(createdAt)}
+            </p>
+            <div className="flex items-center xl:mx-0 mx-3 mt-4 mb-2 sm:ml-0 ml-4">
+                <a href="#" className="mr-2">
+                    <span className="before:content-['\e818'] font-newspaper text-white bg-[#4064AC] text-3xl align-midle px-3 py-1" />
+                </a>
+                <a href="#" className="mx-2">
+                    <span className="before:content-['\E831'] font-newspaper text-[#2FA3F1] text-3xl align-midle " />
+                </a>
+                <a href="#" className="mx-2">
+                    <span className="before:content-['\f232'] font-newspaper text-4xl text-[#519B44]" />
+                </a>
             </div>
         </div>
     )

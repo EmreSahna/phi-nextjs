@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'newspaper';
+    src: url('../public/newspaper.woff') format('woff'),
+        /* Add additional formats if needed (e.g., ttf, eot) */
+}
