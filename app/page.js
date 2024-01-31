@@ -1,4 +1,4 @@
-import {getAnasayfaUstKisim} from "@/lib/api";
+import { getAnasayfaUstKisim } from "@/lib/api";
 import UcluRow from "@/components/uclu-row";
 import IkiliSlider from "@/components/ikili-slider";
 
@@ -6,7 +6,7 @@ export default async function Page() {
     const posts = await getAnasayfaUstKisim(30)
     const ucluRow = posts.slice(0, 3)
     const ikiliSlayt = posts.slice(3, 11)
-    const others = posts.slice(11,30)
+    const others = posts.slice(11, 30)
 
     const chunkSize = 3;
     const groupedPosts = [];
@@ -22,8 +22,8 @@ export default async function Page() {
     return (
         <>
             <div className="mx-auto max-w-[1180px] my-4">
-                <UcluRow news={ucluRow}/>
-                <IkiliSlider news={ikiliSlayt}/>
+                <UcluRow news={ucluRow} />
+                <IkiliSlider news={ikiliSlayt} />
                 {
                     renderedComponents
                 }
