@@ -1,6 +1,3 @@
-import FacebookIcon from "@/components/icons/facebook-icon";
-import TwitterIcon from "@/components/icons/twitter-icon";
-import WhatsappIcon from "@/components/icons/whatsapp-icon";
 import { getPostsSlugs, getSinglePost } from "@/lib/api";
 import { dateToTR } from "@/utils/date_helpers";
 export async function generateMetadata({ params }) {
