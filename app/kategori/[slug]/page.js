@@ -4,16 +4,14 @@ import { stringShortener } from "@/utils/string_helpers";
 import toImageUrl from "@/utils/to_image_url";
 export default async function Category({params}) {
     const { slug } = params
-    const title = slug.replace(/-/g, " ")
-
     const res = await getPostsByCategoryName(slug)
-
+    const title = res.categories.data[0].attributes.Name
     return (
         <div className="mx-auto max-w-[1180px] my-6 flex flex-wrap justify-center">
-            <h1 className="text-4xl md:text-5xl font-bold capitalize">{title}</h1>
+            <h1 className="text-4xl md:text-5xl font-bold">{title}</h1>
             <Divider className="mt-3 mb-6"/>
             {
-                res.map((post,index) => {
+                res.posts.data.map((post,index) => {
                     post = post.attributes
                     return (
                         <div className="sm:mb-4 mb-8 flex flex-col sm:flex-row min-w-full" key={index}>

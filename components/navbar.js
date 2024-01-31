@@ -1,5 +1,6 @@
 import {getCategories} from "@/lib/api";
 import HamburgerIcon from "./icons/hamburger-icon";
+import HamburgerMenu from "./hamburger-menu";
 
 export default async function Navbar() {
     const categories = await getCategories()
@@ -16,7 +17,7 @@ export default async function Navbar() {
                         </a>
                     </div>
                 </div>
-                <HamburgerIcon height={26} width={26} color={"white"} className="visible sm:invisible mr-4 cursor-pointer"/>   
+                <HamburgerMenu categories={categories}/>
             </div>
             <div className="bg-[#fff] hidden sm:block">
                 <div className="w-full mx-auto flex flex-wrap py-1 justify-center font-semibold">

@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'newspaper': ['"Newspaper"', 'serif'],
+      },
       colors: {
         'yblack': '#000000',
         'yrblack': '#0c1821',

@@ -93,7 +93,7 @@ export default async function Footer() {
                 <div className="max-w-[1000px] mx-auto">
                     <div className="sm:flex sm:justify-between">
                         <p className="text-xs text-[#fff] text-center">
-                            &copy; 2023. PhiHaber. All rights reserved.
+                            &copy; 2024. PhiHaber. All rights reserved.
                         </p>
                         <ul className="mt-4 flex flex-wrap justify-center gap-4 text-xs sm:mt-0 lg:justify-end">
                             <li>
