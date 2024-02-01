@@ -30,7 +30,7 @@ export default function Page() {
             </ul>
             <p>Teknik Ekip:</p>
             <ul className="list-disc list-inside">
-                <li><a href="/hukumler-ve-kosullar">Hükümler & Koşullar</a></li>
+                <li><a href="/hukum-ve-kosullar">Hükümler & Koşullar</a></li>
                 <li><a href="/gizlilik-politikasi">Gizlilik Politikası</a></li>
                 <li><a href="/cerezler">Çerez Politikası</a></li>
             </ul>
