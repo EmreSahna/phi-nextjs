@@ -7,6 +7,7 @@ export async function generateMetadata({ params }) {
 
     return {
         title: product.Title + " | PhiHaber",
+        description: product.Description,
         openGraph: {
             title: product.Title,
             siteName: 'PhiHaber',
@@ -28,10 +29,10 @@ export default async function Page({ params }) {
     }
 
     return (
-        <div className="max-w-[1180px] mx-auto ">
-            <div className="flex sm:text-xl text-lg xl:mx-0 ml-4 mt-4">
+        <div className="max-w-[1180px] mx-auto my-4">
+            <div className="flex sm:text-xl text-lg xl:mx-0 ml-4">
                 <h5 className="pr-1">Kategori -</h5>
-                <a href={`/kategori/${category.Slug}`} className="font-medium text-[#0B60B0]">{category.Name}</a>
+                <a href={`/kategori/${category.Slug}`} className="font-medium text-yblue">{category.Name}</a>
             </div>
             <h2 className="font-bold text-4xl xl:mx-0 mx-4 my-2">{res.Title}</h2>
             <DateAndSocialShareRow createdAt={res.createdAt} />
@@ -44,8 +45,9 @@ export default async function Page({ params }) {
                                 display: flex;
                                 flex-direction: column;
                                 text-align: left;
+                                max-width: 850px!important;
                             }
-                            br {
+                            article br {
                                 display: none;
                             }
                             article img {
@@ -61,20 +63,17 @@ export default async function Page({ params }) {
                                     padding-right: 12px;
                                 }
                             }
-                            h1 {
+                            article h1 {
                                 font-size: 44px!important;
                                 font-weight: 700!important;
                                 padding-top: 40px;
                             }
-                            h4 {
+                            article h4 {
                                 font-size: 20px!important;
                                 font-weight: 500!important;
                                 padding-top: 20px;
                             }
-                            article {
-                                max-width: 850px!important;
-                            }
-                            p {
+                            article p {
                                 font-size: 20px;
                                 margin-top: 25px;
                             }
@@ -90,11 +89,11 @@ export default async function Page({ params }) {
 
 function DateAndSocialShareRow({ createdAt }) {
     return (
-        <div className="flex sm:flex-row flex-col sm:justify-between sm:items-center sm:mr-20">
-            <p className="flex font-light text-sm xl:ml-0 ml-4 mt-4">
+        <div className="flex sm:flex-row flex-col sm:justify-between sm:items-start align-text-top sm:mr-20">
+            <p className="flex font-light text-sm xl:ml-0 ml-4">
                 {dateToTR(createdAt)}
             </p>
-            <div className="flex items-center xl:mx-0 mx-3 mt-4 mb-2 sm:ml-0 ml-4">
+            <div className="flex items-center xl:mx-0 mx-3 sm:ml-0 ml-4">
                 <a href="#" className="mr-2">
                     <span className="before:content-['\e818'] font-newspaper text-white bg-[#4064AC] text-3xl align-midle px-3 py-1" />
                 </a>
