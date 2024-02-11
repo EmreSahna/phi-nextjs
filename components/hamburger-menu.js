@@ -16,9 +16,9 @@ export default function HamburgerMenu({categories}){
     }, [isOpened])
     return  (
         <>
-        <a onClick={toggleMenu}>
+        <div onClick={toggleMenu}>
             <HamburgerIcon height={26} width={26} color={"white"} className="visible sm:invisible mr-4 cursor-pointer"/>
-        </a>
+        </div>
         {
             isOpened && (
                 <div onClick={toggleMenu} className={`flex flex-col absolute top-14 bottom-0 left-0 right-0 bg-[rgba(0,0,0,0.92)] z-50 ${isOpened ? 'overflow-hidden' : ''}`}>

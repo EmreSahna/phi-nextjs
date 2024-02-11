@@ -1,5 +1,6 @@
 import { getPostsSlugs, getSinglePost } from "@/lib/api";
 import { dateToTR } from "@/utils/date_helpers";
+
 export async function generateMetadata({ params }) {
     const URL = "https://phihaber.com"
     const id = params.slug
@@ -16,6 +17,9 @@ export async function generateMetadata({ params }) {
             images: [`${URL}/strapi${product.Banner.data.attributes.url}`],
             type: 'website',
             description: product.Description,
+        },
+        alternates: {
+            canonical: `${URL}/haber/${id}`
         }
     }
 }
