@@ -2,6 +2,20 @@ import { getAnasayfaUstKisim } from "@/lib/api";
 import UcluRow from "@/components/uclu-row";
 import IkiliSlider from "@/components/ikili-slider";
 
+export const metadata = {
+    title: 'PhiHaber | En güncel haberler, en güncel yazılarla.',
+    description: 'En güncel haberler, en güncel yazılarla.',
+    openGraph: {
+        title: 'PhiHaber | En güncel haberler, en güncel yazılarla.',
+        description: 'En güncel haberler, en güncel yazılarla.',
+        siteName: 'PhiHaber',
+        locale: 'tr_TR',
+        url: "https://phihaber.com/",
+        images: ["http://phihaber.com/logo.png"],
+        type: 'website',
+    }
+}
+
 export default async function Page() {
     const posts = await getAnasayfaUstKisim(30)
     const ucluRow = posts.slice(0, 3)
